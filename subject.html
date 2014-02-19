@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ФГБУ «Центрохотконтроль»</title>
+
+        <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic" />
+        <link rel="stylesheet" href="css/jquery.jscrollpane.css" />
+        <link rel="stylesheet" href="css/subject.css" />
+
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/jquery.mousewheel.js"></script>
+        <script src="js/jquery.jscrollpane.min.js"></script>
+        <script src="js/subject.js"></script>
+
+        <meta name="viewport" content="width=1024" />
+    </head>
+
+    <body>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="wrapper-inner">
+
+                <header>
+                    <div class="header-top">
+                        <div class="header-inner">
+
+                            <div class="logo"><img src="images/index-logo.png" alt="" width="301" height="45" /></div>
+
+                            <div class="header-user">
+                                <div class="header-user-photo" style="background:url(images/header-user.png)"></div>
+                                <div class="header-user-name">Васильев Кирилл Андреевич</div>
+                                <div class="header-user-menu">
+                                    <a href="#">Редактировать профиль</a>
+                                    <a href="#">Выйти</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </header>
+
+                <!-- subject menu -->
+                <div class="subject-menu">
+                    <ul>
+                        <li class="active"><a href="#">Общая информация</a></li>
+                        <li><a href="#">Охотничьи хозяйства</a></li>
+                        <li><a href="#">Данные о животных</a><sup></sup><sub></sub></li>
+                    </ul>
+                </div>
+                <!-- subject menu END -->
+
+                <!-- subject container -->
+                <div class="subject-container">
+
+                    <!-- subject content -->
+                    <div class="subject-content active">
+                        <div class="subject-general">
+                            <div class="subject-general-text">
+                                <div class="subject-general-title">Петушинский район</div>
+                                <div class="subject-general-region">
+                                    <a href="#">ЦФО</a> >
+                                    <a href="#">Владимирская область</a>
+                                </div>
+                                <div class="subject-general-info">
+                                    <table>
+                                        <tr>
+                                            <td>Территория</td>
+                                            <td>123,000 км&sup2;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Население</td>
+                                            <td>480,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>кол-во охотничьих хозяйств</td>
+                                            <td>123</td>
+                                        </tr>
+                                        <tr>
+                                            <td>площадь охотничьих угодий</td>
+                                            <td>6,000 км&sup2;</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="subject-general-descr">
+                                    <p>Петушинский район находится на юго-западе Владимирской области. Граничит с районами Владимирской области: на северо-западе — с Киржачским районом, на севере — с Кольчугинским районом, на востоке — с Собинским районом; с районами Московской области: на юге — с Шатурским районом, на юго-западе — с Орехово-Зуевским районом. Площадь 1692 км² (8-е место среди районов).</p>
+                                    <p>Основные реки — Клязьма, Большая Ушма, Пекша, Вольга. Большинство озёр — ледникового происхождения, много пойменных озёр и стариц. Около половины территории района занимают леса. Почвы в основном песчаные и супесчаные.</p>
+                                </div>
+                                <div class="subject-general-title">Департамент охотиспользования</div>
+                                <div class="subject-general-info">
+                                    <table>
+                                        <tr>
+                                            <td>Руководитель</td>
+                                            <td>Шило Сергей Георгиевич</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Адрес</td>
+                                            <td>305000, г. Курск, ул. Радищева, д17</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Режим работы</td>
+                                            <td>понедельник-пятница с 09:00 до 18:00<br />перерыв с 13:00 до 14:00<br />суббота, выскресенье выходной</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Телефон<br />Факс</td>
+                                            <td>4712 51-14-19, 4712 51-14-19<br />4712 51-14-19</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Электронная почта</td>
+                                            <td><a href="#">ohota@kursk.ru</a></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="subject-general-map" id="map1"></div>
+                            <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+                            <script type="text/javascript">
+                                ymaps.ready(init);
+
+                                var myMap;
+
+                                function init () {
+                                    myMap = new ymaps.Map('map1', {
+                                        center: [56.136, 40.390],
+                                        zoom: 12
+                                    });
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <!-- subject content END -->
+
+                    <!-- subject content -->
+                    <div class="subject-content">
+                        <div class="subject-items">
+                            <div class="subject-row">
+                                <div class="subject-item">
+                                    <div class="subject-item-title">Охотничье угодье №1</div>
+                                    <div class="subject-item-info">
+                                        <table>
+                                            <tr>
+                                                <td>Руководитель</td>
+                                                <td>Шило Сергей Георгиевич</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Адрес</td>
+                                                <td>305000, г. Курск, ул. Радищева, д17</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Режим работы</td>
+                                                <td>понедельник-пятница с 09:00 до 18:00<br />перерыв с 13:00 до 14:00<br />суббота, выскресенье выходной</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Телефон<br />Факс</td>
+                                                <td>4712 51-14-19, 4712 51-14-19<br />4712 51-14-19</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Электронная почта</td>
+                                                <td><a href="#">ohota@kursk.ru</a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="subject-item">
+                                    <div class="subject-item-title">Охотничье угодье №2</div>
+                                    <div class="subject-item-info">
+                                        <table>
+                                            <tr>
+                                                <td>Руководитель</td>
+                                                <td>Шило Сергей Георгиевич</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Адрес</td>
+                                                <td>305000, г. Курск, ул. Радищева, д17</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Режим работы</td>
+                                                <td>понедельник-пятница с 09:00 до 18:00<br />перерыв с 13:00 до 14:00<br />суббота, выскресенье выходной</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Телефон<br />Факс</td>
+                                                <td>4712 51-14-19, 4712 51-14-19<br />4712 51-14-19</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Электронная почта</td>
+                                                <td><a href="#">ohota@kursk.ru</a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="subject-item">
+                                    <div class="subject-item-title">Охотничье угодье №3</div>
+                                    <div class="subject-item-info">
+                                        <table>
+                                            <tr>
+                                                <td>Руководитель</td>
+                                                <td>Шило Сергей Георгиевич</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Адрес</td>
+                                                <td>305000, г. Курск, ул. Радищева, д17</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Режим работы</td>
+                                                <td>понедельник-пятница с 09:00 до 18:00<br />перерыв с 13:00 до 14:00<br />суббота, выскресенье выходной</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Телефон<br />Факс</td>
+                                                <td>4712 51-14-19, 4712 51-14-19<br />4712 51-14-19</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Электронная почта</td>
+                                                <td><a href="#">ohota@kursk.ru</a></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- subject content END -->
+
+                    <!-- subject content -->
+                    <div class="subject-content">
+                        <div class="subject-data-map" id="map2"></div>
+                        <script type="text/javascript">
+                            ymaps.ready(init);
+
+                            var myMap;
+
+                            function init () {
+                                myMap = new ymaps.Map('map2', {
+                                    center: [56.136, 40.390],
+                                    zoom: 12
+                                });
+                            }
+                        </script>
+
+                        <div class="subject-headers">
+                            <div class="subject-headers-inner">
+                                <div class="subject-head subject-head-1"><a href="#">Животное</a> <span></span></div>
+                                <div class="subject-head subject-head-2"><a href="#" class="digital">Год</a> <span></span></div>
+                                <div class="subject-head subject-head-3"><a href="#">Категория</a> <span></span></div>
+                                <div class="subject-head subject-head-4"><a href="#">Субъект</a> <span></span></div>
+                                <div class="subject-head subject-head-5"><a href="#">Район</a> <span></span></div>
+                                <div class="subject-head subject-head-6"><a href="#" class="digital">Данные</a> <span></span></div>
+                            </div>
+                        </div>
+
+                        <div class="subject-list">
+                            <div class="subject-list-inner">
+                                <div class="subject-list-content">
+                                    <div class="subject-list-row">
+                                        <div class="subject-list-col subject-list-col-1"><a href="#">Олень благородный</a></div>
+                                        <div class="subject-list-col subject-list-col-2">2013</div>
+                                        <div class="subject-list-col subject-list-col-3">численность</div>
+                                        <div class="subject-list-col subject-list-col-4">Приморский край</div>
+                                        <div class="subject-list-col subject-list-col-5">Анучинский</div>
+                                        <div class="subject-list-col subject-list-col-6">318,5</div>
+                                    </div>
+                                    <div class="subject-list-row">
+                                        <div class="subject-list-col subject-list-col-1"><a href="#">Олень благородный</a></div>
+                                        <div class="subject-list-col subject-list-col-2">2013</div>
+                                        <div class="subject-list-col subject-list-col-3">численность</div>
+                                        <div class="subject-list-col subject-list-col-4">Приморский край</div>
+                                        <div class="subject-list-col subject-list-col-5">Дальнегорский</div>
+                                        <div class="subject-list-col subject-list-col-6">404</div>
+                                    </div>
+                                    <div class="subject-list-row">
+                                        <div class="subject-list-col subject-list-col-1"><a href="#">Олень благородный</a></div>
+                                        <div class="subject-list-col subject-list-col-2">2013</div>
+                                        <div class="subject-list-col subject-list-col-3">численность</div>
+                                        <div class="subject-list-col subject-list-col-4">Приморский край</div>
+                                        <div class="subject-list-col subject-list-col-5">Дальнегорский</div>
+                                        <div class="subject-list-col subject-list-col-6">202,5</div>
+                                    </div>
+                                    <div class="subject-list-row">
+                                        <div class="subject-list-col subject-list-col-1"><a href="#">Косуля европейская</a></div>
+                                        <div class="subject-list-col subject-list-col-2">2013</div>
+                                        <div class="subject-list-col subject-list-col-3">добыча</div>
+                                        <div class="subject-list-col subject-list-col-4">Приморский край</div>
+                                        <div class="subject-list-col subject-list-col-5">Кавалеровский</div>
+                                        <div class="subject-list-col subject-list-col-6">343</div>
+                                    </div>
+                                    <div class="subject-list-row">
+                                        <div class="subject-list-col subject-list-col-1"><a href="#">Косуля европейская</a></div>
+                                        <div class="subject-list-col subject-list-col-2">2013</div>
+                                        <div class="subject-list-col subject-list-col-3">добыча</div>
+                                        <div class="subject-list-col subject-list-col-4">Приморский край</div>
+                                        <div class="subject-list-col subject-list-col-5">Кировский</div>
+                                        <div class="subject-list-col subject-list-col-6">210,8</div>
+                                    </div>
+                                    <div class="subject-list-row">
+                                        <div class="subject-list-col subject-list-col-1"><a href="#">Косуля европейская</a></div>
+                                        <div class="subject-list-col subject-list-col-2">2013</div>
+                                        <div class="subject-list-col subject-list-col-3">численность</div>
+                                        <div class="subject-list-col subject-list-col-4">Приморский край</div>
+                                        <div class="subject-list-col subject-list-col-5">Анучинский</div>
+                                        <div class="subject-list-col subject-list-col-6">735,9</div>
+                                    </div>
+                                    <div class="subject-list-row">
+                                        <div class="subject-list-col subject-list-col-1"><a href="#">Лось</a></div>
+                                        <div class="subject-list-col subject-list-col-2">2013</div>
+                                        <div class="subject-list-col subject-list-col-3">численность</div>
+                                        <div class="subject-list-col subject-list-col-4">Приморский край</div>
+                                        <div class="subject-list-col subject-list-col-5">Лазовский</div>
+                                        <div class="subject-list-col subject-list-col-6">318,5</div>
+                                    </div>
+                                    <div class="subject-list-row">
+                                        <div class="subject-list-col subject-list-col-1"><a href="#">Лось</a></div>
+                                        <div class="subject-list-col subject-list-col-2">2013</div>
+                                        <div class="subject-list-col subject-list-col-3">численность</div>
+                                        <div class="subject-list-col subject-list-col-4">Приморский край</div>
+                                        <div class="subject-list-col subject-list-col-5">Лазовский</div>
+                                        <div class="subject-list-col subject-list-col-6">400</div>
+                                    </div>
+                                    <div class="subject-list-row">
+                                        <div class="subject-list-col subject-list-col-1"><a href="#">Кабан</a></div>
+                                        <div class="subject-list-col subject-list-col-2">2012</div>
+                                        <div class="subject-list-col subject-list-col-3">численность</div>
+                                        <div class="subject-list-col subject-list-col-4">Хабаровский край</div>
+                                        <div class="subject-list-col subject-list-col-5">Лазовский</div>
+                                        <div class="subject-list-col subject-list-col-6">400</div>
+                                    </div>
+                                    <div class="subject-list-row">
+                                        <div class="subject-list-col subject-list-col-1"><a href="#">Кабан</a></div>
+                                        <div class="subject-list-col subject-list-col-2">2012</div>
+                                        <div class="subject-list-col subject-list-col-3">добыча</div>
+                                        <div class="subject-list-col subject-list-col-4">Хабаровский край</div>
+                                        <div class="subject-list-col subject-list-col-5">Лазовский</div>
+                                        <div class="subject-list-col subject-list-col-6">400</div>
+                                    </div>
+                                    <div class="subject-list-row">
+                                        <div class="subject-list-col subject-list-col-1"><a href="#">Волк</a></div>
+                                        <div class="subject-list-col subject-list-col-2">2012</div>
+                                        <div class="subject-list-col subject-list-col-3">численность</div>
+                                        <div class="subject-list-col subject-list-col-4">Московская область</div>
+                                        <div class="subject-list-col subject-list-col-5">Лазовский</div>
+                                        <div class="subject-list-col subject-list-col-6">400</div>
+                                    </div>
+                                    <div class="subject-list-row">
+                                        <div class="subject-list-col subject-list-col-1"><a href="#">Волк</a></div>
+                                        <div class="subject-list-col subject-list-col-2">2013</div>
+                                        <div class="subject-list-col subject-list-col-3">добыча</div>
+                                        <div class="subject-list-col subject-list-col-4">Московская область</div>
+                                        <div class="subject-list-col subject-list-col-5">Лазовский</div>
+                                        <div class="subject-list-col subject-list-col-6">400</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- subject content END -->
+
+                </div>
+                <!-- subject container END -->
+
+            </div>
+        </div>
+        <!-- wrapper END -->
+
+        <footer>
+            <div class="footer-top">
+                <div class="footer-inner">
+
+                    <div class="copyrights">
+                        <p>(с) ФГБУ «Центрохотконтроль» 2013. Все права защищены.</p>
+                        <p><a href="#">Условия и правила использования</a></p>
+                    </div>
+
+                    <div class="contacts">
+                        <p>123056, г. Москва, ул. Зоологическая, д. 4</p>
+                        <p>Телефон: +7 495 783-69-86</p>
+                        <p>Электронная почта: <a href="#">info@centrohotkontrol.ru</a></p>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+    </body>
+</html>

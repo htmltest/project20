@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ФГБУ «Центрохотконтроль»</title>
+
+        <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic" />
+        <link rel="stylesheet" href="css/jquery.jscrollpane.css" />
+        <link rel="stylesheet" href="css/wColorPicker.css" />
+        <link rel="stylesheet" href="css/inner.css" />
+
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/jquery.mousewheel.js"></script>
+        <script src="js/jquery.jscrollpane.min.js"></script>
+        <script src="js/rgbHex.min.js"></script>
+        <script src="js/wColorPicker.js"></script>
+        <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="js/inner.js"></script>
+
+        <meta name="viewport" content="width=1024" />
+    </head>
+
+    <body>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+
+            <header>
+                <div class="logo"><img src="images/inner-logo.png" alt="" width="301" height="45" /></div>
+
+                <div class="header-user">
+                    <div class="header-user-photo" style="background:url(images/header-user.png)"></div>
+                    <div class="header-user-name">Васильев Кирилл Андреевич</div>
+                    <div class="header-user-menu">
+                        <a href="#">Редактировать профиль</a>
+                        <a href="#">Редактировать данные</a>
+                        <a href="#">Выйти</a>
+                    </div>
+                </div>
+
+            </header>
+
+            <section>
+
+                <div id="map"></div>
+                <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+                <script type="text/javascript">
+                    ymaps.ready(init);
+
+                    var myMap;
+
+                    function init () {
+                        myMap = new ymaps.Map('map', {
+                            center: [56.136, 40.390],
+                            zoom: 12
+                        });
+                    }
+                </script>
+
+                <div class="header-shadow"></div>
+
+                <!-- popup -->
+                <div class="popup" style="left:27%; top:15px">
+                    <div class="popup-top"></div>
+                    <div class="popup-middle">
+                        <div class="subject-general-title">Петушинский район</div>
+                        <div class="subject-general-region">
+                            <a href="#">ЦФО</a> >
+                            <a href="#">Владимирская область</a>
+                        </div>
+                        <div class="subject-general-info">
+                            <table>
+                                <tr>
+                                    <td>Территория</td>
+                                    <td>123,000 км&sup2;</td>
+                                </tr>
+                                <tr>
+                                    <td>Население</td>
+                                    <td>480,000</td>
+                                </tr>
+                                <tr>
+                                    <td>кол-во охотничьих хозяйств</td>
+                                    <td>123</td>
+                                </tr>
+                                <tr>
+                                    <td>площадь охотничьих угодий</td>
+                                    <td>6,000 км&sup2;</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="subject-general-wrap">
+                            <div class="subject-general-title">Департамент охотиспользования</div>
+                            <div class="subject-general-info">
+                                <table>
+                                    <tr>
+                                        <td>Руководитель</td>
+                                        <td>Шило Сергей Георгиевич</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Адрес</td>
+                                        <td>305000, г. Курск, ул. Радищева, д17</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Режим работы</td>
+                                        <td>понедельник-пятница с 09:00 до 18:00<br />перерыв с 13:00 до 14:00<br />суббота, выскресенье выходной</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Телефон<br />Факс</td>
+                                        <td>4712 51-14-19, 4712 51-14-19<br />4712 51-14-19</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Электронная почта</td>
+                                        <td><a href="#">ohota@kursk.ru</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="popup-menu">
+                            <ul>
+                                <li><a href="#">Подробнее</a></li>
+                                <li><a href="#">Редактировать</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="popup-bottom"></div>
+                    <a href="#" class="popup-close"></a>
+                </div>
+                <!-- popup END -->
+
+                <!-- data -->
+                <div class="data">
+
+                    <!-- data menu -->
+                    <div class="data-menu">
+                        <ul>
+                            <li class="active"><a href="#">Животные</a><sub></sub></li>
+                            <li><a href="#">Общие данные</a><sup></sup><sub></sub></li>
+                            <li><a href="#">Другие данные</a><sup></sup><sub></sub></li>
+                        </ul>
+                    </div>
+                    <!-- data menu END -->
+
+                    <!-- data container -->
+                    <div class="data-container">
+
+                        <!-- data content -->
+                        <div class="data-content active">
+                            <div class="data-selects">
+                                <div class="data-select data-select-1">
+                                    <div class="data-select-value"><em><span>Олень благородный</span></em> <strong></strong></div>
+                                    <ul>
+                                        <li class="active"><a href="#">Олень благородный</a></li>
+                                        <li><a href="#">Кабан</a></li>
+                                        <li><a href="#">Косуля европейская</a></li>
+                                        <li><a href="#">Очень длинное тестовое название животного</a></li>
+                                        <li><a href="#">Лось</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="data-select data-select-2">
+                                    <div class="data-select-value"><em><span>2013</span></em> <strong></strong></div>
+                                    <ul>
+                                        <li class="active"><a href="#">2013</a></li>
+                                        <li><a href="#">2012</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="data-select data-select-3">
+                                    <div class="data-select-value"><em><span>Владимирская</span></em> <strong></strong></div>
+                                    <ul>
+                                        <li class="active"><a href="#">Владимирская</a></li>
+                                        <li><a href="#">Волгоградская</a></li>
+                                        <li><a href="#">Вологодская</a></li>
+                                        <li><a href="#">Воронежская</a></li>
+                                        <li><a href="#">Карачаево-Черкесская республика</a></li>
+                                        <li><a href="#">Иркутская</a></li>
+                                        <li><a href="#">Калиниградская</a></li>
+                                        <li><a href="#">Калужская</a></li>
+                                        <li><a href="#">Камчатская</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="data-region">
+                                <div class="data-region-title">Район:</div>
+                                <div class="data-select data-select-1">
+                                    <div class="data-select-value"><em><span>Пушкинский</span></em> <strong></strong></div>
+                                    <ul>
+                                        <li class="active"><a href="#">Пушкинский</a></li>
+                                        <li><a href="#">Другой</a></li>
+                                    </ul>
+                                </div>
+                                <div class="data-region-favourite"><a href="#">добавить в избранное</a></div>
+                            </div>
+
+                            <div class="subject-general-info">
+                                <table>
+                                    <tr>
+                                        <td>Численность</td>
+                                        <td>405</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Добыча</td>
+                                        <td>303.5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Разрешенная добыча</td>
+                                        <td>322</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="data-favourite">
+                                <div class="data-favourite-item"><a href="#">Олег благородный</a> — 2013  / Владмирская / Пушкинский р-н</div>
+                                <div class="data-favourite-item"><a href="#">Кабан</a> — 2013  / Владмирская / Пушкинский р-н</div>
+                            </div>
+                            <div class="data-content-top"></div>
+                        </div>
+                        <!-- data content END -->
+
+                        <!-- data content -->
+                        <div class="data-content">
+                            <div class="data-selects">
+                                <div class="data-select data-select-1">
+                                    <div class="data-select-value"><em><span>Олень благородный</span></em> <strong></strong></div>
+                                    <ul>
+                                        <li class="active"><a href="#">Олень благородный</a></li>
+                                        <li><a href="#">Кабан</a></li>
+                                        <li><a href="#">Косуля европейская</a></li>
+                                        <li><a href="#">Лось</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="data-select data-select-2">
+                                    <div class="data-select-value"><em><span>2013</span></em> <strong></strong></div>
+                                    <ul>
+                                        <li class="active"><a href="#">2013</a></li>
+                                        <li><a href="#">2012</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="data-select data-select-3">
+                                    <div class="data-select-value"><em><span>Владимирская</span></em> <strong></strong></div>
+                                    <ul>
+                                        <li class="active"><a href="#">Владимирская</a></li>
+                                        <li><a href="#">Волгоградская</a></li>
+                                        <li><a href="#">Вологодская</a></li>
+                                        <li><a href="#">Воронежская</a></li>
+                                        <li><a href="#">Ивановская</a></li>
+                                        <li><a href="#">Иркутская</a></li>
+                                        <li><a href="#">Калиниградская</a></li>
+                                        <li><a href="#">Калужская</a></li>
+                                        <li><a href="#">Камчатская</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="subject-general-info">
+                                <table>
+                                    <tr>
+                                        <td>Численность</td>
+                                        <td>405</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Добыча</td>
+                                        <td>303.5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Разрешенная добыча</td>
+                                        <td>322</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="data-detail-link"><a href="#" rel="Свернуть информацию">Развернуть информацию</a></div>
+                            <div class="data-detail">
+                                <div class="data-detail-inner">
+                                    <div class="data-detail-content">
+                                        <h2>Владимирская область</h2>
+                                        <img src="files/gerb.png" alt="" width="122" height="122" class="gerb" />
+                                        <p>Территория находится в центре Восточно-Европейской равнины, основная часть территории — слабо всхолмлённая равнина с общим понижением от Клинско-Дмитровской гряды (высоты до 271 м) на севере, через Владимирское (Юрьево) Ополье (высота до 236 м), далее на юг к Мещёрской низменности (преобладающая высота 120 м) и на восток</p>
+                                        <div class="subject-general-info">
+                                            <table>
+                                                <tr>
+                                                    <td>Население:</td>
+                                                    <td>150000 человек</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Территория:</td>
+                                                    <td>1243 Га</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Охотничьи угодья:</td>
+                                                    <td>543 Га</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <h3>ОхотУправление №15</h3>
+                                        <p>
+                                            Адрес: <strong>123056, г. Москва, ул. Зоологическая, д. 4</strong><br />
+                                            Телефон: <strong>+7 495 783-69-86</strong><br />
+                                            Электронная почта: <strong><a href="#">info@centrohotkontrol.ru</a></strong>
+                                        </p>
+                                        <h3>ОхотУправление №14</h3>
+                                        <p>
+                                            Адрес: <strong>123056, г. Москва, ул. Зоологическая, д. 4</strong><br />
+                                            Телефон: <strong>+7 495 783-69-86</strong><br />
+                                            Электронная почта: <strong><a href="#">info@centrohotkontrol.ru</a></strong>
+                                        </p>
+                                        <h3>ОхотУправление №13</h3>
+                                        <p>
+                                            Адрес: <strong>123056, г. Москва, ул. Зоологическая, д. 4</strong><br />
+                                            Телефон: <strong>+7 495 783-69-86</strong><br />
+                                            Электронная почта: <strong><a href="#">info@centrohotkontrol.ru</a></strong>
+                                        </p>
+                                        <h3>ОхотУправление №12</h3>
+                                        <p>
+                                            Адрес: <strong>123056, г. Москва, ул. Зоологическая, д. 4</strong><br />
+                                            Телефон: <strong>+7 495 783-69-86</strong><br />
+                                            Электронная почта: <strong><a href="#">info@centrohotkontrol.ru</a></strong>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="data-content-top"></div>
+                        </div>
+                        <!-- data content END -->
+
+                        <!-- data content -->
+                        <div class="data-content">
+                            <div class="data-selects">
+                                <div class="data-select data-select-1">
+                                    <div class="data-select-value"><em><span>Кабан</span></em> <strong></strong></div>
+                                    <ul>
+                                        <li><a href="#">Олень благородный</a></li>
+                                        <li class="active"><a href="#">Кабан</a></li>
+                                        <li><a href="#">Косуля европейская</a></li>
+                                        <li><a href="#">Лось</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="data-select data-select-2">
+                                    <div class="data-select-value"><em><span>2012</span></em> <strong></strong></div>
+                                    <ul>
+                                        <li class="active"><a href="#">2013</a></li>
+                                        <li><a href="#">2012</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="data-select data-select-3">
+                                    <div class="data-select-value"><em><span>Владимирская</span></em> <strong></strong></div>
+                                    <ul>
+                                        <li class="active"><a href="#">Владимирская</a></li>
+                                        <li><a href="#">Волгоградская</a></li>
+                                        <li><a href="#">Вологодская</a></li>
+                                        <li><a href="#">Воронежская</a></li>
+                                        <li><a href="#">Ивановская</a></li>
+                                        <li><a href="#">Иркутская</a></li>
+                                        <li><a href="#">Калиниградская</a></li>
+                                        <li><a href="#">Калужская</a></li>
+                                        <li><a href="#">Камчатская</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="data-region">
+                                <div class="data-region-title">Район:</div>
+                                <div class="data-select data-select-1">
+                                    <div class="data-select-value"><em><span>Пушкинский</span></em> <strong></strong></div>
+                                    <ul>
+                                        <li class="active"><a href="#">Пушкинский</a></li>
+                                        <li><a href="#">Другой</a></li>
+                                    </ul>
+                                </div>
+                                <div class="data-region-favourite"><a href="#">добавить в избранное</a></div>
+                            </div>
+
+                            <div class="subject-general-info">
+                                <table>
+                                    <tr>
+                                        <td>Численность</td>
+                                        <td>405</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Добыча</td>
+                                        <td>303.5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Разрешенная добыча</td>
+                                        <td>322</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="data-content-top"></div>
+                        </div>
+                        <!-- data content END -->
+
+                    </div>
+                    <!-- data container END -->
+
+                </div>
+                <!-- data END -->
+
+                <!-- legend -->
+                <div class="legend">
+                    <div class="legend-title">Численность оленя благородного</div>
+                    <div class="legend-list">
+                        <div class="legend-list-item">
+                            <div class="legend-list-item-color" style="background:#cdff8b"></div>
+                            <div class="legend-list-item-name">300 — 353</div>
+                        </div>
+                        <div class="legend-list-item">
+                            <div class="legend-list-item-color" style="background:#b5d788"></div>
+                            <div class="legend-list-item-name">200 — 299</div>
+                        </div>
+                        <div class="legend-list-item">
+                            <div class="legend-list-item-color" style="background:#6ecf7e"></div>
+                            <div class="legend-list-item-name">100 — 199</div>
+                        </div>
+                        <div class="legend-list-item">
+                            <div class="legend-list-item-color" style="background:#3ebb3e"></div>
+                            <div class="legend-list-item-name">50 — 99</div>
+                        </div>
+                        <div class="legend-list-item">
+                            <div class="legend-list-item-color" style="background:#2d8655"></div>
+                            <div class="legend-list-item-name">0 — 49</div>
+                        </div>
+                        <div class="legend-list-item">
+                            <div class="legend-list-item-color" style="background:#1d4158"></div>
+                            <div class="legend-list-item-name">не зарегистрировано</div>
+                        </div>
+                    </div>
+
+                    <div class="legend-edit-link"><a href="#">Редактировать</a></div>
+
+                    <div class="legend-edit">
+                        <div class="legend-edit-title">Редактирование легенды</div>
+                        <div class="legend-slider">
+                            <div class="legend-slider-line">
+                                <div class="legend-slider-handle legend-slider-handle-tmp">
+                                    <div class="legend-slider-handle-value">0</div>
+                                    <div class="legend-slider-handle-add"></div>
+                                </div>
+                            </div>
+                            <div class="legend-slider-items">
+                                <input type="hidden" name="maxCount" value="353" />
+                                <div class="legend-slider-handle legend-slider-handle-fix" style="left:0%">
+                                    <div class="legend-slider-handle-value">0</div>
+                                    <div class="legend-slider-handle-color" style="background:#1d4158"></div>
+                                </div>
+
+                                <div class="legend-slider-handle" style="left:14%">
+                                    <div class="legend-slider-handle-value">50</div>
+                                    <div class="legend-slider-handle-color" style="background:#2d8655"></div>
+                                    <div class="legend-slider-handle-del"></div>
+                                </div>
+
+                                <div class="legend-slider-handle" style="left:28%">
+                                    <div class="legend-slider-handle-value">100</div>
+                                    <div class="legend-slider-handle-color" style="background:#3ebb3e"></div>
+                                    <div class="legend-slider-handle-del"></div>
+                                </div>
+
+                                <div class="legend-slider-handle" style="left:57%">
+                                    <div class="legend-slider-handle-value">200</div>
+                                    <div class="legend-slider-handle-color" style="background:#6ecf7e"></div>
+                                    <div class="legend-slider-handle-del"></div>
+                                </div>
+
+                                <div class="legend-slider-handle" style="left:85%">
+                                    <div class="legend-slider-handle-value">300</div>
+                                    <div class="legend-slider-handle-color" style="background:#b5d788"></div>
+                                    <div class="legend-slider-handle-del"></div>
+                                </div>
+
+                                <div class="legend-slider-handle legend-slider-handle-fix" style="left:100%">
+                                    <div class="legend-slider-handle-value">353</div>
+                                    <div class="legend-slider-handle-color" style="background:#cdff8b"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="legend-opacity">
+                            <div class="legend-opacity-title">Прозачность:</div>
+                            <div class="legend-opacity-values">
+                                <div class="legend-opacity-value"><em><input type="radio" name="opacity" value="20" /></em><span>20</span></div>
+                                <div class="legend-opacity-value"><em><input type="radio" name="opacity" value="40" /></em><span>40</span></div>
+                                <div class="legend-opacity-value"><em><input type="radio" name="opacity" value="60" checked="checked" /></em><span>60</span></div>
+                                <div class="legend-opacity-value"><em><input type="radio" name="opacity" value="80" /></em><span>80</span></div>
+                                <div class="legend-opacity-value"><em><input type="radio" name="opacity" value="100" /></em><span>100</span></div>
+                            </div>
+                        </div>
+                        <a href="#" class="legend-edit-close"></a>
+                    </div>
+                </div>
+                <!-- legend END -->
+
+            </section>
+
+        </div>
+        <!-- wrapper END -->
+
+        <footer>
+
+            <div class="copyrights">
+                <p>(с) ФГБУ «Центрохотконтроль» 2013. Все права защищены.</p>
+                <p><a href="#">Условия и правила использования</a></p>
+            </div>
+
+            <div class="contacts">
+                <p>123056, г. Москва, ул. Зоологическая, д. 4</p>
+                <p>Телефон: +7 495 783-69-86</p>
+                <p>Электронная почта: <a href="#">info@centrohotkontrol.ru</a></p>
+            </div>
+
+        </footer>
+
+    </body>
+</html>
