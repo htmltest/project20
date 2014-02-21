@@ -136,15 +136,22 @@ section {display:block; position:relative; width:100%}
 .legend-slider {position:relative; margin:0 20px 69px 20px; height:6px}
 .legend-slider-line {position:relative; height:5px; border-top:1px solid #cbcec8; width:100%; cursor:pointer; background:#e2e4de}
 .legend-slider-items {position:absolute; left:-3px; top:-9px; width:332px}
-.legend-slider-handle {position:absolute; top:0; width:13px; margin-left:-7px; height:26px; background:url(../images/legend-slider-handle.png) no-repeat left -26px; cursor:pointer}
+.legend-slider-handle {position:absolute; top:0; width:9px; margin-left:-5px; height:26px; background:url(../images/legend-slider-handle.png) no-repeat left -26px; cursor:pointer}
+.legend-slider-handle:hover {z-index:2}
 .legend-slider-line .legend-slider-handle-tmp {display:none; background-position:left top; top:-10px}
+.legend-slider-handle-tmp:hover {z-index:auto}
 .legend-slider-line:hover .legend-slider-handle-tmp {display:block}
-.legend-slider-handle-value {position:absolute; left:-5px; top:26px; width:23px; text-align:center; color:#475047; font-size:12px; line-height:18px; height:18px; border-top:2px solid #fff}
+.legend-slider-handle-value {position:absolute; left:-7px; top:26px; width:23px; text-align:center; color:#475047; font-size:12px; line-height:18px; height:18px; border-top:2px solid #fff}
+.legend-slider-handle:hover .legend-slider-handle-value {background:#fff}
+.legend-slider-handle-tmp:hover .legend-slider-handle-value {background:none}
+.legend-slider-handle-value span:hover {color:#0077b5; background:url(../images/subject-menu.png) repeat-x center bottom}
+.legend-slider-handle-fix .legend-slider-handle-value span:hover {color:#475047; background:none}
+.legend-slider-handle-value input {width:23px; vertical-align:top; color:#475047; font:12px/18px "PT Sans", arial, helvetica, sans-serif; border:none; background:none; margin:0; padding:0; height:18px; text-align:center; outline:none}
 .legend-slider-handle-tmp .legend-slider-handle-value {color:#3ebb3e}
-.legend-slider-handle-color {position:absolute; left:0; top:46px; width:12px; height:12px; border-top:5px solid #fff}
-.legend-slider-handle-del {display:none; position:absolute; left:-3px; top:-22px; width:19px; height:19px; background:url(../images/legend-item-del.png); cursor:pointer; border-bottom:3px solid #fff}
+.legend-slider-handle-color {position:absolute; left:-2px; top:46px; width:12px; height:12px; border-top:5px solid #fff}
+.legend-slider-handle-del {display:none; position:absolute; left:-5px; top:-22px; width:19px; height:19px; background:url(../images/legend-item-del.png); cursor:pointer; border-bottom:3px solid #fff}
 .legend-slider-handle:hover .legend-slider-handle-del {display:block}
-.legend-slider-handle-add {position:absolute; left:-3px; top:-22px; width:19px; height:19px; background:url(../images/legend-item-add.png); cursor:pointer; border-bottom:3px solid #fff}
+.legend-slider-handle-add {position:absolute; left:-5px; top:-22px; width:19px; height:19px; background:url(../images/legend-item-add.png); cursor:pointer; border-bottom:3px solid #fff}
 
 .legend-opacity {width:100%; height:37px; padding:0 0 10px 0}
 .legend-opacity:after {content:"."; display:block; clear:both; visibility:hidden; height:0}

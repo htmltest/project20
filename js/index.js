@@ -11,6 +11,10 @@
                 curLi.addClass('active');
                 $('.form.active').removeClass('active');
                 $('.form').eq(curIndex).addClass('active');
+                // стилизация селектов
+                if ($('.form').eq(curIndex).find('select').length > 0) {
+                    $('.form').eq(curIndex).find('select').chosen({disable_search_threshold:20});
+                }
             }
             return false;
         });

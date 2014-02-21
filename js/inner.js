@@ -88,7 +88,7 @@
             containment: 'parent',
             drag: function() {
                 var curLeft = Number($(this).css('left').replace('px', ''));
-                $(this).find('.legend-slider-handle-value').html(Math.round((curLeft / $('.legend-slider-line').width()) * Number($('.legend-slider-items input[name="maxCount"]').val())));
+                $(this).find('.legend-slider-handle-value span').html(Math.round((curLeft / $('.legend-slider-line').width()) * Number($('.legend-slider-items input[name="maxCount"]').val())));
             },
             stop: function() {
                 var curLeft = Number($(this).css('left').replace('px', ''));
@@ -96,7 +96,7 @@
                     curLeft = $('.legend-slider-line').width() - 1;
                     $(this).css({'left':curLeft});
                 }
-                $(this).find('.legend-slider-handle-value').html(Math.round((curLeft / $('.legend-slider-line').width()) * Number($('.legend-slider-items input[name="maxCount"]').val())));
+                $(this).find('.legend-slider-handle-value span').html(Math.round((curLeft / $('.legend-slider-line').width()) * Number($('.legend-slider-items input[name="maxCount"]').val())));
                 updateLegend();
             }
         });
@@ -119,7 +119,7 @@
         $('.legend-slider-line').mousemove(function(e) {
             var curLeft = e.pageX - $('.legend-slider-line').offset().left;
             $('.legend-slider-handle-tmp').css({'left': curLeft});
-            $('.legend-slider-handle-tmp .legend-slider-handle-value').html(Math.round((curLeft / $('.legend-slider-line').width()) * Number($('.legend-slider-items input[name="maxCount"]').val())));
+            $('.legend-slider-handle-tmp .legend-slider-handle-value span').html(Math.round((curLeft / $('.legend-slider-line').width()) * Number($('.legend-slider-items input[name="maxCount"]').val())));
         });
 
         $('.legend-slider-line .legend-slider-handle-tmp').click(function() {
@@ -143,7 +143,7 @@
                 containment: 'parent',
                 drag: function() {
                     var curLeft = Number($(this).css('left').replace('px', ''));
-                    $(this).find('.legend-slider-handle-value').html(Math.round((curLeft / $('.legend-slider-line').width()) * Number($('.legend-slider-items input[name="maxCount"]').val())));
+                    $(this).find('.legend-slider-handle-value span').html(Math.round((curLeft / $('.legend-slider-line').width()) * Number($('.legend-slider-items input[name="maxCount"]').val())));
                 },
                 stop: function() {
                     var curLeft = Number($(this).css('left').replace('px', ''));
@@ -151,7 +151,7 @@
                         curLeft = $('.legend-slider-line').width() - 1;
                         $(this).css({'left':curLeft});
                     }
-                    $(this).find('.legend-slider-handle-value').html(Math.round((curLeft / $('.legend-slider-line').width()) * Number($('.legend-slider-items input[name="maxCount"]').val())));
+                    $(this).find('.legend-slider-handle-value span').html(Math.round((curLeft / $('.legend-slider-line').width()) * Number($('.legend-slider-items input[name="maxCount"]').val())));
                     updateLegend();
                 }
             });
@@ -159,19 +159,64 @@
             updateLegend();
         });
 
+        $('body').on('click', '.legend-slider-handle-value span', function() {
+            var curEl = $(this).parent();
+            if (curEl.parents().filter('.legend-slider-handle-fix').length == 0) {
+                curEl.find('span').hide();
+                curEl.append('<input type="text" name="count" value="' + curEl.find('span').html() + '" />');
+                curEl.find('input').focus();
+            }
+        });
+
+        $('body').on('keyup', '.legend-slider-handle-value input', function(e) {
+            var curEl = $(this).parent();
+            if (e.keyCode == 27) {
+                curEl.find('span').show();
+                curEl.find('input').remove();
+            }
+            if (e.keyCode == 13) {
+                var curVal = Number(curEl.find('input').val());
+                if (curVal >= Number($('.legend-slider-handle-fix').eq(0).find('.legend-slider-handle-value span').html()) && curVal <= Number($('.legend-slider-handle-fix').eq(1).find('.legend-slider-handle-value span').html())) {
+                    curEl.parent().css({'left': curVal / Number($('.legend-slider-items input[name="maxCount"]').val()) * 100 + '%'});
+                    curEl.find('span').html(curVal).show();
+                    curEl.find('input').remove();
+                    updateLegend();
+                } else {
+                    curEl.find('span').show();
+                    curEl.find('input').remove();
+                    alert('Некорректное значение');
+                }
+            }
+        });
+
+        $('body').on('blur', '.legend-slider-handle-value input', function(e) {
+            var curEl = $(this).parent();
+            var curVal = Number(curEl.find('input').val());
+            if (curVal >= Number($('.legend-slider-handle-fix').eq(0).find('.legend-slider-handle-value span').html()) && curVal <= Number($('.legend-slider-handle-fix').eq(1).find('.legend-slider-handle-value span').html())) {
+                curEl.parent().css({'left': curVal / Number($('.legend-slider-items input[name="maxCount"]').val()) * 100 + '%'});
+                curEl.find('span').html(curVal).show();
+                curEl.find('input').remove();
+                updateLegend();
+            } else {
+                curEl.find('span').show();
+                curEl.find('input').remove();
+                alert('Некорректное значение');
+            }
+        });
+
         function updateLegend() {
             var newHTML = '';
             var prevText = '0';
             var elements = $('.legend-slider-items .legend-slider-handle');
             elements.sort(function(a, b) {
-                var compA = Number($(a).find('.legend-slider-handle-value').text());
-                var compB = Number($(b).find('.legend-slider-handle-value').text());
+                var compA = Number($(a).find('.legend-slider-handle-value span').text());
+                var compB = Number($(b).find('.legend-slider-handle-value span').text());
                 return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
             });
             for (var i = 0; i < elements.length; i++) {
-                var curText = Number($(elements[i]).find('.legend-slider-handle-value').html()) - 1;
+                var curText = Number($(elements[i]).find('.legend-slider-handle-value span').html()) - 1;
                 if (i == elements.length - 1) {
-                    curText = $(elements[i]).find('.legend-slider-handle-value').html();
+                    curText = $(elements[i]).find('.legend-slider-handle-value span').html();
                 }
                 if (newHTML == '') {
                     newHTML = '<div class="legend-list-item">' +
@@ -184,7 +229,7 @@
                                     '<div class="legend-list-item-name">' + prevText + ' — ' + curText + '</div>' +
                                 '</div>' + newHTML;
                 }
-                prevText = $(elements[i]).find('.legend-slider-handle-value').html();
+                prevText = $(elements[i]).find('.legend-slider-handle-value span').html();
             }
             $('.legend-list').html(newHTML);
         }
